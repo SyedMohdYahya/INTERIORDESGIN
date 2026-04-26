@@ -674,6 +674,7 @@ footer {
 
     nav { padding: 0.75rem 1.25rem; }
     .logo { font-size: 0.8rem; letter-spacing: 0.15rem; }
+    .nav-links { display: none !important; }
     
     .mobile-menu-toggle { 
         display: block !important;
