@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | HIGH-RATIO DESIGN</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .contact-page {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background-color: var(--color-off-white);
+        }
+
+        .contact-visual {
+            background-color: var(--color-olive);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .contact-visual::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background-image: 
+                linear-gradient(rgba(229, 222, 212, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(229, 222, 212, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            transform: rotate(15deg);
+        }
+
+        .visual-content {
+            position: relative;
+            z-index: 2;
+            color: var(--color-beige);
+            padding: 4rem;
+        }
+
+        .visual-content h2 {
+            font-size: 4rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-form-container {
+            padding: 8rem 6rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        .form-group {
+            position: relative;
+            border-bottom: 1px solid rgba(74, 80, 67, 0.3);
+            padding-bottom: 0.5rem;
+            transition: var(--transition-smooth);
+        }
+
+        .form-group:focus-within {
+            border-bottom-color: var(--color-olive);
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2rem;
+            color: var(--color-olive);
+            margin-bottom: 0.5rem;
+            opacity: 0.6;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            background: none;
+            border: none;
+            outline: none;
+            font-family: var(--font-body);
+            font-size: 1.2rem;
+            color: var(--color-text);
+            padding: 0.5rem 0;
+        }
+
+        .submit-btn {
+            align-self: flex-start;
+            padding: 1.2rem 3rem;
+            background-color: var(--color-beige);
+            border: 1px solid var(--color-olive);
+            color: var(--color-olive);
+            text-transform: uppercase;
+            letter-spacing: 0.2rem;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+
+        .submit-btn:hover {
+            background-color: var(--color-olive);
+            color: var(--color-beige);
+        }
+
+        .success-msg {
+            display: none;
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            color: var(--color-olive);
+            text-align: center;
+            animation: fadeIn 0.5s forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 1024px) {
+            .contact-page { grid-template-columns: 1fr; }
+            .contact-visual { height: 40vh; }
+            .contact-form-container { padding: 4rem 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <nav>
+        <a href="index.html" class="logo" style="text-decoration: none;">HIGH-RATIO DESIGN</a>
+        <div class="nav-links">
+            <a href="index.html#projects">Projects</a>
+            <a href="index.html#services">Services</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <main class="contact-page">
+        <section class="contact-visual">
+            <div class="visual-content">
+                <p style="text-transform: uppercase; letter-spacing: 0.5rem; font-size: 0.7rem; margin-bottom: 1rem;">Let's Build</p>
+                <h2>Start Your <br>Vision.</h2>
+                <p style="max-width: 400px; opacity: 0.8;">Whether it's a private residence or a commercial landmark, we're ready to bring your architectural dreams to life.</p>
+            </div>
+        </section>
+
+        <section class="contact-form-container">
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" required placeholder="John Doe">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" required placeholder="john@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="subject">Project Type</label>
+                    <input type="text" id="subject" placeholder="Residential / Commercial">
+                </div>
+                <div class="form-group">
+                    <label for="message">Your Vision</label>
+                    <textarea id="message" rows="4" required placeholder="Tell us about your space..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Inquiry</button>
+            </form>
+            <div class="success-msg" id="successMsg">
+                Thank you. <br>Our design team will <br>reach out shortly.
+            </div>
+        </section>
+    </main>
+
+    <script src="main.js"></script>
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            this.style.display = 'none';
+            document.getElementById('successMsg').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
