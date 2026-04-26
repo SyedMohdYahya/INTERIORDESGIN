@@ -630,11 +630,12 @@ footer {
         box-shadow: 20px 20px 0px var(--color-olive);
     }
     .hero-content {
-        padding: 2.5rem 2rem;
+        padding: 2.5rem 1.5rem; /* Reduced padding */
         max-width: 100%;
+        border-left-width: 4px; /* Thinner line on mobile */
     }
     .hero h1 {
-        font-size: 3rem;
+        font-size: 2.8rem; /* Scaled down */
     }
     .gallery-slide {
         width: 220px;
@@ -642,40 +643,42 @@ footer {
 }
 
 @media (max-width: 768px) {
-    .container { padding: 0 1.2rem; }
-    .hero { padding: 0; }
-    .hero .container { padding-top: 5rem; }
-    .hero h1 { font-size: 2.5rem; }
-    .hero p { font-size: 1rem; }
+    .container { padding: 0 1rem; }
+    .hero { padding: 0; height: auto; min-height: 100vh; }
+    .hero .container { padding-top: 6rem; padding-bottom: 4rem; }
+    .hero h1 { font-size: 2.2rem; }
+    .hero p { font-size: 0.95rem; }
     
-    .section-title { font-size: 2.2rem; margin-bottom: 3rem; }
+    .section-title { font-size: 1.8rem; margin-bottom: 2rem; }
     
-    .interactive-grid { grid-template-columns: repeat(2, 1fr); }
-    .grid-item { padding: 1.5rem; }
+    .interactive-grid { grid-template-columns: repeat(2, 1fr); gap: 0; }
+    .grid-item { padding: 1.2rem; border: 0.5px solid rgba(74, 80, 67, 0.1); }
+    .grid-item h3 { font-size: 1rem; }
     
-    .portfolio { padding: 6rem 0; }
-    .portfolio .section-title { font-size: 2.8rem; margin-bottom: 4rem; }
-    .portfolio-grid { gap: 2rem; }
-    .portfolio-item { grid-column: span 12; margin-bottom: 1rem; padding: 1rem; }
-    .portfolio-item img { height: 300px; }
+    .portfolio { padding: 5rem 0; }
+    .portfolio .section-title { font-size: 2.4rem; margin-bottom: 3rem; }
+    .portfolio-grid { gap: 1.5rem; }
+    .portfolio-item { grid-column: span 12; margin-bottom: 0.5rem; padding: 1rem; }
+    .portfolio-item img { height: 280px; }
 
-    nav { padding: 1rem 1.2rem; }
-    .logo { font-size: 1rem; letter-spacing: 0.1rem; }
+    nav { padding: 0.8rem 1rem; }
+    .logo { font-size: 0.9rem; letter-spacing: 0.05rem; max-width: 60%; }
     .nav-links { display: none; }
-    .mobile-menu-toggle { display: block; }
-
-    .gallery-track { height: 350px; gap: 0.5rem; }
-    .gallery-slide { width: 160px; height: 240px; }
-    .gallery-slide.featured { transform: scale(1.1); z-index: 5; }
     
-    .blueprint-content h2 { font-size: 2.2rem; }
-    .blueprint-section { padding: 6rem 0; }
+    .mobile-menu-toggle { padding: 0.4rem 0.8rem; font-size: 0.6rem; }
+    .mobile-nav-links a { font-size: 2rem; }
 
-    footer { padding: 4rem 1.2rem; }
-    .footer-top { flex-direction: column; gap: 3rem; }
-    .footer-links { flex-direction: row; flex-wrap: wrap; gap: 2rem; }
-    .footer-bottom { flex-direction: column; gap: 1.5rem; align-items: flex-start; text-align: left; }
-    .contact-info { flex-direction: column; gap: 0.5rem !important; }
+    .gallery-track { height: 300px; gap: 0.5rem; }
+    .gallery-slide { width: 140px; height: 220px; }
+    .gallery-slide.featured { transform: scale(1.15); }
+    
+    .blueprint-content h2 { font-size: 1.8rem; }
+    .blueprint-section { padding: 5rem 0; }
+
+    footer { padding: 3rem 1rem; }
+    .footer-top { gap: 2rem; }
+    .footer-links { gap: 1.5rem; }
+    .footer-brand .logo { font-size: 1rem; }
 }
 
 @media (pointer: coarse) {
