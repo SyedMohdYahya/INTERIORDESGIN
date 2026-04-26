@@ -104,6 +104,25 @@ document.querySelectorAll('.gallery-filters button').forEach(button => {
     button.addEventListener('click', () => {
         document.querySelector('.gallery-filters button.active')?.classList.remove('active');
         button.classList.add('active');
-        // In a real app, this would filter images; here we just toggle the UI state
+    });
+});
+
+// Mobile Menu Logic
+const mobileToggle = document.querySelector('.mobile-menu-toggle');
+const mobileClose = document.querySelector('.mobile-menu-close');
+const mobileMenu = document.querySelector('.mobile-menu');
+const mobileLinks = document.querySelectorAll('.mobile-nav-links a');
+
+mobileToggle?.addEventListener('click', () => {
+    mobileMenu.classList.add('active');
+});
+
+mobileClose?.addEventListener('click', () => {
+    mobileMenu.classList.remove('active');
+});
+
+mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
     });
 });
